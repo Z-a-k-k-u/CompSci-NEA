@@ -13,9 +13,17 @@ class Platform {
   show() {
     fill(this.r, this.g, this.b);
     rect(this.x, this.y, this.w, this.h);
-    //fill(255);
-    //ellipse(this.x + this.w / 2, this.y + this.h / 2, 3, 3);
-    //console.log(this.w)
+    strokeWeight(2)
+    push()
+    stroke(9, 255, 0)
+    line(this.x, this.y, this.x + this.w, this.y)
+    stroke(48, 238, 255)
+    line(this.x, this.y, this.x, this.y + this.h )
+    pop()
+  }
+
+  collision(){
+    //do collisiom 
   }
 
   update() {
