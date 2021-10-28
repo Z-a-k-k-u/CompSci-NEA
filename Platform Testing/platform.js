@@ -18,7 +18,7 @@ class Platform {
     stroke(9, 255, 0)
     line(this.x, this.y, this.x + this.w, this.y)
     stroke(48, 238, 255)
-    line(this.x, this.y, this.x, this.y + this.h )
+    line(this.x, this.y, this.x, this.y + this.h + 10)
     pop()
   }
 
