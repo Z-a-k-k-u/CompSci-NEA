@@ -13,17 +13,16 @@ class Platform {
   show() {
     fill(this.r, this.g, this.b);
     rect(this.x, this.y, this.w, this.h);
-    strokeWeight(2)
     push()
-    stroke(9, 255, 0)
-    line(this.x, this.y, this.x + this.w, this.y)
+    fill(0,255,9)
+    rect(this.x, this.y, this.w, this.h - 28)
     stroke(48, 238, 255)
-    line(this.x, this.y, this.x, this.y + this.h + 10)
+    rect(this.x, this.y, this.w - (this.w - 1), this.h + 10)
     pop()
   }
 
   collision(){
-    //do collisiom 
+    
   }
 
   update() {
