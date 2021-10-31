@@ -21,8 +21,16 @@ class Platform {
     pop()
   }
 
-  collision(){
-    
+  collisionTop(){
+    if(collideRectRect(this.x, this.y, this.w, this.h - 28, player.x, player.y, player.w, player.w)){
+      return true; 
+    }
+  }
+
+  collisionSide(){
+    if(collideRectRect(this.x, this.y, this.w - (this.w - 1), this.h + 10, player.x, player.y, player.w, player.w)){
+      return true; 
+    }
   }
 
   update() {
