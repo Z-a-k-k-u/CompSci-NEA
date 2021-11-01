@@ -1,18 +1,18 @@
 let player;
-let platforms = [];
+var platforms = [];
 let img;
 var boxCollider;
 let spawning = true
+let font; 
 
-p5.disableFriendlyErrors = true;
+//p5.disableFriendlyErrors = true;
 
+function preload(){
+  preSetup()
+}
 
 function setup() {
-  createCanvas(800, 500);
-  background(0);
-  player = new Char(110, 100);
-  platforms.push(new Platform(200, 255, 0, 0));
-  img = loadImage("assets/platform2.png")
+  allSetup()
 }
 
 function draw() {
@@ -31,10 +31,20 @@ function draw() {
 
   for (var i = platforms.length - 1; i >= 0; i--) {
     platforms[i].show();
-    platforms[i].update();
+    if(spawning == true){
+      platforms[i].update();
+    }
 
     if (platforms[i].off()) {
       platforms.splice(i, 1);
+    }
+
+    if(platforms[i].collideSide(player)){ 
+      player.x = platforms[i].x - player.w
+    }else if(platforms[i].collideTop(player)){ 
+      player.y = 315
+      player.velocity = 0;
+      player.jumping = false
     }
   }
 }
@@ -43,8 +53,19 @@ function keyPressed() {
   if (keyCode === UP_ARROW) {
     if (player.jumping == false) {
       player.velocity += player.lift;
-      console.log("Jumping");
       player.jumping = true;
+    }
+  }
+
+  if (keyCode === 77){
+    player.y = 100
+  }
+
+  if(keyCode === 78){
+    if(spawning == true){
+      spawning = false
+    } else{
+      spawning = true
     }
   }
 }

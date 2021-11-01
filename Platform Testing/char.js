@@ -5,7 +5,7 @@ class Char {
     this.y = y;
     this.w = 35;
     this.gravity = 0.4;
-    this.lift = -8;
+    this.lift = -10;
     this.velocity = 5;
     this.jumping = false;
     this.mspeed = 2
@@ -27,8 +27,8 @@ class Char {
     this.velocity += this.gravity;
     this.y += this.velocity;
 
-    if (this.y > height - 190) {
-      this.y = height - 190;
+    if (this.y > height - 65) {
+      this.y = height - 65;
       this.velocity = 0;
       this.jumping = false;
     }
