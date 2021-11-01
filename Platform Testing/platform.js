@@ -91,7 +91,7 @@ class Platform {
 
   off() {
     //console.log("Offscreen")
-    if (this.x < -this.w) {
+    if (this.x < -this.w - this.voidw) {
       return true;
     } else {
       return false;

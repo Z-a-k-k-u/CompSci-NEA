@@ -5,6 +5,7 @@ class Score{
   }
 
   showScore(){
+    textAlign(LEFT) 
     fill(24, 211, 214)
     textFont(font)
     textSize(14)
