@@ -4,8 +4,14 @@ let img;
 var boxCollider;
 let spawning = true
 let font; 
+let score;
+let randomcheck; 
+let voidCheck; 
+let maxJump = false; 
+let maxVelo = -9
+let gameMode = 1
 
-//p5.disableFriendlyErrors = true;
+p5.disableFriendlyErrors = true;
 
 function preload(){
   preSetup()
@@ -16,46 +22,30 @@ function setup() {
 }
 
 function draw() {
-  background(0);
-  fill(255);
-  rect(0, height - 30, width, 50);
-
-  if (frameCount % 60 == 0 && spawning == true) {
-    platforms.push(new Platform(floor(random(80, 120)), 200, 50, 20));
-    //console.log("Pushed New Platform")
-    //console.log(platforms.length)
-  }
-
-  player.update();
-  player.show();
-
-  for (var i = platforms.length - 1; i >= 0; i--) {
-    platforms[i].show();
-    if(spawning == true){
-      platforms[i].update();
-    }
-
-    if (platforms[i].off()) {
-      platforms.splice(i, 1);
-    }
-
-    if(platforms[i].collideSide(player)){ 
-      player.x = platforms[i].x - player.w
-    }else if(platforms[i].collideTop(player)){ 
-      player.y = 315
-      player.velocity = 0;
-      player.jumping = false
-    }
+  switch (gameMode) {
+    case 1:
+      //console.log("start Menu")
+      STARTMENU();
+      break;
+    case 2:
+      MAINGAME();
+      break;
   }
 }
 
-function keyPressed() {
-  if (keyCode === UP_ARROW) {
-    if (player.jumping == false) {
-      player.velocity += player.lift;
-      player.jumping = true;
-    }
-  }
+function MAINGAME(){
+  jumpKey(); 
+  background(0);
+  fill(255);
+  rect(0, height - 30, width, 50);
+  platformManager();
+}
+
+function STARTMENU(){
+  menu(); 
+}
+
+function keyPressed(){
 
   if (keyCode === 77){
     player.y = 100
@@ -69,3 +59,18 @@ function keyPressed() {
     }
   }
 }
+
+function jumpKey(){
+  if (keyIsDown(38)) {
+    if (player.jumping == false) {
+      console.log("Jump tings")
+      if(player.velocity > maxVelo && maxJump == false){
+        player.velocity -= 1
+        if(player.velocity <= maxVelo){
+          maxJump = true;
+          player.jumping = true;  
+        }
+      }
+    }
+  }
+} 
