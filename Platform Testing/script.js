@@ -63,7 +63,6 @@ function keyPressed(){
 function jumpKey(){
   if (keyIsDown(38)) {
     if (player.jumping == false) {
-      console.log("Jump tings")
       if(player.velocity > maxVelo && maxJump == false){
         player.velocity -= 1
         if(player.velocity <= maxVelo){
