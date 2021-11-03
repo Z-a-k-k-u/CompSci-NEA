@@ -9,7 +9,7 @@ let randomcheck;
 let voidCheck; 
 let maxJump = false; 
 let maxVelo = -7
-let gameMode = 1
+let gameMode = 2
 
 p5.disableFriendlyErrors = true;
 

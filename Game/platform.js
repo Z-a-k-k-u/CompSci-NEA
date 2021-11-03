@@ -66,21 +66,21 @@ class Platform {
     push();
     fill(0,255,9, 1);
     stroke(255,0,0);
-    rect(this.x + 3, this.y, this.w - 3, this.h - 25);
+    rect(this.x, this.y, this.w, this.h - 25);
     stroke(48, 238, 255);
-    rect(this.x - 2, this.y + 2, this.w - (this.w - 3), this.h + 10);
+    rect(this.x - 2, this.y + 4, this.w - (this.w - 3), this.h + 10);
     pop();
 
   }
 
   collideTop(player){ //collision top
-    if(collideRectRect(this.x + 3, this.y, this.w - 3, this.h - 25, player.x, player.y, player.w, player.w)){
+    if(collideRectRect(this.x, this.y, this.w, this.h - 25, player.x, player.y, player.w, player.w)){
       return true;
     }
   }
 
   collideSide(player){ //collision side
-    if(collideRectRect(this.x - 2, this.y + 2, this.w - (this.w - 3), this.h + 10, player.x, player.y, player.w, player.w)){
+    if(collideRectRect(this.x - 2, this.y + 4, this.w - (this.w - 3), this.h + 10, player.x, player.y, player.w, player.w)){
       return true; 
     }
   }
