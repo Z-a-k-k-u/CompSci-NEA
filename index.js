@@ -2,7 +2,7 @@ let socketio = require('socket.io');
 let express = require('express');
 
 let exp = express();
-exp.use(express.static('Platform Testing'));
+exp.use(express.static('Game'));
 let web = exp.listen(process.env.PORT, function() {
   console.log("Running");
 });
