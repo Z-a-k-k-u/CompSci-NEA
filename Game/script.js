@@ -10,6 +10,7 @@ let voidCheck;
 let maxJump = false; 
 let maxVelo = -7
 let gameMode = 2
+let coinnnn
 
 p5.disableFriendlyErrors = true;
 
@@ -19,6 +20,7 @@ function preload(){
 
 function setup() {
   allSetup()
+  coinnnn = new Coin(100,100)
 }
 
 function draw() {
@@ -29,6 +31,7 @@ function draw() {
       break;
     case 2:
       MAINGAME();
+      coinnnn.render(); 
       break;
   }
 }

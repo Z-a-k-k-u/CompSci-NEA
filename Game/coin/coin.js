@@ -2,7 +2,7 @@ class Coin {
   constructor(posx, posy){
     this.x = posx
     this.y = posy
-    this.r = 12
+    this.r = 20
   }
 
   render(){
