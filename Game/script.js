@@ -7,10 +7,10 @@ let font;
 let score;
 let randomcheck; 
 let voidCheck; 
-let maxJump = false; 
-let maxVelo = -7
-let gameMode = 2
-let coinnnn
+let gameMode = 1
+let firstCheck;
+let secondCheck
+let jumpVelocity;  
 
 p5.disableFriendlyErrors = true;
 
@@ -20,7 +20,6 @@ function preload(){
 
 function setup() {
   allSetup()
-  coinnnn = new Coin(100,100)
 }
 
 function draw() {
@@ -31,7 +30,6 @@ function draw() {
       break;
     case 2:
       MAINGAME();
-      coinnnn.render(); 
       break;
   }
 }
@@ -61,18 +59,25 @@ function keyPressed(){
       spawning = true
     }
   }
+
+  if(keyCode === UP_ARROW){
+    firstCheck = millis();
+  }
+}
+
+function keyReleased(){
+  if(keyCode === UP_ARROW){
+    player.velocity = jumpVelocity
+  }
 }
 
 function jumpKey(){
-  if (keyIsDown(38)) {
-    if (player.jumping == false) {
-      if(player.velocity > maxVelo && maxJump == false){
-        player.velocity -= 1
-        if(player.velocity <= maxVelo){
-          maxJump = true;
-          player.jumping = true;  
-        }
-      }
+  if (keyIsDown(UP_ARROW) && player.jumping == false) {
+    secondCheck = millis()
+    if(secondCheck - firstCheck > 100) {
+      jumpVelocity = -10 
+    } else {
+      jumpVelocity = -8
     }
   }
 } 

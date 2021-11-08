@@ -2,7 +2,7 @@ class Platform {
   constructor(w, voidw, red, green, blue) {
     this.x = width;
     this.h = 30;
-    this.speed = 3.5; //3.5
+    this.speed = 4.5; //3.5
     this.w = w;
     this.y = height - 150;
     this.r = red;
