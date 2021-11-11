@@ -3,7 +3,8 @@ function preSetup(){
 }
 
 function allSetup(){
-  createCanvas(800, 500);
+  canvas = createCanvas(800, 500);
+  canvas.parent('middlediv')
   background(0);
   player = new Char(110, 100);
   platforms.push(new Platform(900, 3, 255, 0, 0));

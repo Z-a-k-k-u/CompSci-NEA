@@ -7,6 +7,14 @@
         "version": 1075,
         "index": 330
       }
+    ],
+    "Game/platform/platform.js": [
+      {
+        "id": "4f781600-992e-462b-bbb2-8dd9979b3a0f",
+        "line": 80,
+        "version": 459,
+        "index": 1902
+      }
     ]
   }
 }

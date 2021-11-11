@@ -5,9 +5,10 @@ class Coin {
     this.r = 20
   }
 
-  render(){
+  render(platx){
     fill(199, 143, 38);
-    ellipse(this.x, this.y, this.r); 
+    ellipse(this.x, this.y, this.r);
+    this.x += platx
   }
 
   collision(player){ 

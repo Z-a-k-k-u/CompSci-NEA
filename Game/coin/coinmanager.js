@@ -1,5 +1,5 @@
 function generateCoinPattern(number, platx, platy){
-  let coinArray = new Array([])
+  let coinArray = []
   let coinx = undefined;
   let coiny = undefined;
   let currentCoinPattern = undefined; 
@@ -34,17 +34,16 @@ function generateCoinPattern(number, platx, platy){
     switch(c){
       case 1:
         coinGenerator(100)
-        console.log(coinArray)
         break;
       case 2:
         coinGenerator(120)
-        console.log(coinArray)
         break;
       case 3:
         coinGenerator(140)
-        console.log(coinArray)
         break;
 
     }
   }
+
+  return coinArray; 
 }

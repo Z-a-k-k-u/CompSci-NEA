@@ -22,6 +22,7 @@ class Platform {
       voidTwo: {width: 200},
       voidThree: {width: 300}
     }
+    this.platformCoins = undefined; 
   }
 
   show() { 
@@ -71,6 +72,12 @@ class Platform {
     rect(this.x - 2, this.y + 4, this.w - (this.w - 3), this.h + 10);
     pop();
 
+
+    if(this.platformCoins !== undefined){
+      for(var c = 0; c < this.platformCoins.length; c++){ 
+        this.platformCoins[c].render(this.x)
+      }
+    }
   }
 
   collideTop(player){ //collision top

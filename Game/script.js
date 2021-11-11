@@ -7,10 +7,13 @@ let font;
 let score;
 let randomcheck; 
 let voidCheck; 
-let gameMode = 1
+let gameMode = 2
 let firstCheck;
 let secondCheck
 let jumpVelocity;  
+let canvase; 
+let canCoinSpawn; 
+let whatCoinPattern;
 
 p5.disableFriendlyErrors = true;
 

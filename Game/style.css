@@ -1,3 +1,13 @@
+
 #body{
     background: rgb(50,50,50);
 }
+
+#middlediv{
+  margin: auto;
+  width: 57%;
+  border: 3px solid green;
+  padding: 10px;
+}
+
+

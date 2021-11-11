@@ -31,7 +31,6 @@ class Char {
       this.y = height - 65;
       this.velocity = 0;
       this.jumping = false;
-      maxJump = false;
     }
   }
 }

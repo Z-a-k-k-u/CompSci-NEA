@@ -2,13 +2,39 @@ function platformManager(){
   if (platforms[platforms.length - 1].voidx <= width-platforms[platforms.length - 1].voidw) {
     randomcheck = floor(random(1,6))
     voidCheck = floor(random(1,4))
+    canCoinSpawn = floor(random(1,4))
     platforms.push(new Platform(randomcheck, voidCheck, 98, 0, 255));
     console.log("Pushed New Platform")
     canSpawn = false
+    whatCoinPattern = floor(random(1,6))
+  }
+
+  let lastPlatform = platforms.length - 1; 
+
+  if(canCoinSpawn == 3){
+    //console.log("Coin is Spawning")
+    switch(whatCoinPattern) {
+      case 1:
+        platforms[lastPlatform].platformCoins = generateCoinPattern(1, platforms[lastPlatform].x, platforms[lastPlatform].y)
+        break;
+      case 2:
+        platforms[lastPlatform].platformCoins = generateCoinPattern(2, platforms[lastPlatform].x, platforms[lastPlatform].y)
+        break;
+      case 3:
+        platforms[lastPlatform].platformCoins = generateCoinPattern(3, platforms[lastPlatform].x, platforms[lastPlatform].y)
+        break;
+      case 4:
+        platforms[lastPlatform].platformCoins = generateCoinPattern(4, platforms[lastPlatform].x, platforms[lastPlatform].y)
+        break;
+      case 5:
+        platforms[lastPlatform].platformCoins = generateCoinPattern(5, platforms[lastPlatform].x, platforms[lastPlatform].y)
+        break; 
+    }
   }
 
   player.update();
   player.show();
+  
 
   for (var i = platforms.length - 1; i >= 0; i--) {
     platforms[i].show();
@@ -26,7 +52,6 @@ function platformManager(){
       player.y = 315
       player.velocity = 0;
       player.jumping = false
-      maxJump = false; 
     }
   }
 
