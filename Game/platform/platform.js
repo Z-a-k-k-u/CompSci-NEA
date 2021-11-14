@@ -70,12 +70,11 @@ class Platform {
     rect(this.x, this.y, this.w, this.h - 25);
     stroke(48, 238, 255);
     rect(this.x - 2, this.y + 4, this.w - (this.w - 3), this.h + 10);
-    pop();
-
+    pop(); 
 
     if(this.platformCoins !== undefined){
       for(var c = 0; c < this.platformCoins.length; c++){ 
-        this.platformCoins[c].render(this.x)
+        this.platformCoins[c].render()
       }
     }
   }
@@ -94,6 +93,15 @@ class Platform {
 
   update() {
     this.x -= this.speed;
+  }
+
+  coinrender(){
+    if(this.platformCoins !== undefined){
+      for(let c = 0; c < this.platformCoins.length; c++){ 
+        this.platformCoins[c].update(this.x)
+        console.log("Coin Render")
+      }
+    }
   }
 
   off() {

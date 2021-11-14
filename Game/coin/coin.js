@@ -5,9 +5,12 @@ class Coin {
     this.r = 20
   }
 
-  render(platx){
+  render(){
     fill(199, 143, 38);
     ellipse(this.x, this.y, this.r);
+  }
+
+  update(platx){
     this.x += platx
   }
 

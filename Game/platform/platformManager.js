@@ -3,16 +3,14 @@ function platformManager(){
     randomcheck = floor(random(1,6))
     voidCheck = floor(random(1,4))
     canCoinSpawn = floor(random(1,4))
+    whatCoinPattern = floor(random(1,6))
     platforms.push(new Platform(randomcheck, voidCheck, 98, 0, 255));
     console.log("Pushed New Platform")
     canSpawn = false
-    whatCoinPattern = floor(random(1,6))
   }
 
-  let lastPlatform = platforms.length - 1; 
-
   if(canCoinSpawn == 3){
-    //console.log("Coin is Spawning")
+    let lastPlatform = platforms.length - 1; 
     switch(whatCoinPattern) {
       case 1:
         platforms[lastPlatform].platformCoins = generateCoinPattern(1, platforms[lastPlatform].x, platforms[lastPlatform].y)
@@ -41,6 +39,8 @@ function platformManager(){
     if(spawning == true){
       platforms[i].update();
     }
+
+    platforms[i].coinrender(); 
 
     if (platforms[i].off()) {
       platforms.splice(i, 1);
