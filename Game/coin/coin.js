@@ -11,7 +11,7 @@ class Coin {
   }
 
   update(platx){
-    this.x += platx
+    this.x -= platx
   }
 
   collision(player){ 

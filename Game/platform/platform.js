@@ -95,11 +95,14 @@ class Platform {
     this.x -= this.speed;
   }
 
-  coinrender(){
+  coinrender(player){
     if(this.platformCoins !== undefined){
-      for(let c = 0; c < this.platformCoins.length; c++){ 
-        this.platformCoins[c].update(this.x)
-        console.log("Coin Render")
+      for(let c = this.platformCoins.length - 1; c >= 0; c--){ 
+        this.platformCoins[c].update(this.speed)
+
+        if(this.platformCoins[c].collision(player)){
+          this.platformCoins.splice(c , 1)
+        }
       }
     }
   }

@@ -31,18 +31,10 @@ function generateCoinPattern(number, platx, platy){
   }
 
   for(c of currentCoinPattern){
-    switch(c){
-      case 1:
-        coinGenerator(100)
-        break;
-      case 2:
-        coinGenerator(120)
-        break;
-      case 3:
-        coinGenerator(140)
-        break;
-
-    }
+    coinx = platx + numberOfCoins
+    coiny = platy + 100 + 20 * (c - 1)
+    coinArray.push(new Coin(coinx, coiny))
+    numberOfCoins += 20
   }
 
   return coinArray; 

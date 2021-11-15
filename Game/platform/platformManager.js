@@ -11,23 +11,7 @@ function platformManager(){
 
   if(canCoinSpawn == 3){
     let lastPlatform = platforms.length - 1; 
-    switch(whatCoinPattern) {
-      case 1:
-        platforms[lastPlatform].platformCoins = generateCoinPattern(1, platforms[lastPlatform].x, platforms[lastPlatform].y)
-        break;
-      case 2:
-        platforms[lastPlatform].platformCoins = generateCoinPattern(2, platforms[lastPlatform].x, platforms[lastPlatform].y)
-        break;
-      case 3:
-        platforms[lastPlatform].platformCoins = generateCoinPattern(3, platforms[lastPlatform].x, platforms[lastPlatform].y)
-        break;
-      case 4:
-        platforms[lastPlatform].platformCoins = generateCoinPattern(4, platforms[lastPlatform].x, platforms[lastPlatform].y)
-        break;
-      case 5:
-        platforms[lastPlatform].platformCoins = generateCoinPattern(5, platforms[lastPlatform].x, platforms[lastPlatform].y)
-        break; 
-    }
+    platforms[lastPlatform].platformCoins = generateCoinPattern(whatCoinPattern, platforms[lastPlatform].x + 180, platforms[lastPlatform].y - 200)
   }
 
   player.update();
@@ -40,7 +24,7 @@ function platformManager(){
       platforms[i].update();
     }
 
-    platforms[i].coinrender(); 
+    platforms[i].coinrender(player); 
 
     if (platforms[i].off()) {
       platforms.splice(i, 1);
