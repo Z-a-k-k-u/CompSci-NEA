@@ -14,7 +14,7 @@ function allSetup(){
   endscreenButtons(); 
   startMenuButtons()
   /* ------------------------- */
-  var gameDeltaTime = millis(); 
+  gameTime = millis(); 
   console.log("Delta time loaded")
   /* ------------------------- */
 }

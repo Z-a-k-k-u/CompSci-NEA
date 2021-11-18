@@ -11,11 +11,12 @@ function endscreen(){
     usernameInputBox.hide();
     submitScoreButton.hide();
     fill(255)
+    stroke(255, 132, 0)
     textSize(32)
     text("Highscores", width/2, 50)
     strokeWeight(2)
-    stroke(255, 132, 0)
     line(50, 70, 750, 70);
+    noStroke();
     if(returnedHighscores !== null){
       textAlign(CENTER)
       textSize(24)
@@ -80,4 +81,5 @@ function dod(){
 function backToMainMenu(){
   gameMode = 1
   backToMenuButton.hide();
+  showscores = false; 
 }

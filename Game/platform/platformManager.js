@@ -1,4 +1,4 @@
-function platformManager(){
+function platformManager(){ 
   if (platforms[platforms.length - 1].voidx <= width-platforms[platforms.length - 1].voidw) {
     randomcheck = floor(random(1,6))
     voidCheck = floor(random(1,4))
@@ -9,19 +9,23 @@ function platformManager(){
     canSpawn = false
   }
 
+  if(player.jumping){
+    jumps = 2
+  }
+
   if(canCoinSpawn == 3){
     let lastPlatform = platforms.length - 1; 
     platforms[lastPlatform].platformCoins = generateCoinPattern(whatCoinPattern, platforms[lastPlatform].x + 180, platforms[lastPlatform].y - 200)
   }
 
-  player.update(deltaTime);
+  player.update(gameTime);
   player.show();
   
 
   for (var i = platforms.length - 1; i >= 0; i--) {
     platforms[i].show();
     if(spawning == true){
-      platforms[i].update();
+      platforms[i].update(frameCount);
     }
 
     platforms[i].coinrender(player, score, coinsCollected); 
@@ -35,7 +39,7 @@ function platformManager(){
     }else if(platforms[i].collideTop(player)){ 
       player.y = 315
       player.velocity = 0;
-      player.jumping = false
+      player.jumping = false;
     }
   }
 

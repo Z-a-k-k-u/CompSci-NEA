@@ -17,6 +17,8 @@ let whatCoinPattern;
 const socket = io();
 let returnedHighscores = null; 
 let coinsCollected = 0; 
+var gameTime;
+let jumps = 2;
 
 p5.disableFriendlyErrors = true;
 
@@ -40,8 +42,17 @@ function setup() {
   allSetup()
 }
 
+function gameInit(){
+  platforms = [];
+  score.score = 0
+  coinsCollected = 0
+  player = new Char(110, 100);
+  platforms.push(new Platform(900, 3, 255, 0, 0));
+  platforms[0].x = 50
+}
+
 function draw() {
-  gameDeltaTime = gameDeltaTime + millis(); 
+  gameTime = millis();
   switch (gameMode) {
     case 1:
       //console.log("start Menu")
@@ -57,7 +68,6 @@ function draw() {
 }
 
 function MAINGAME(){
-  jumpKey(); 
   background(0);
   platformManager();
 }
@@ -74,6 +84,7 @@ function keyPressed(){
 
   if (keyCode === 77){
     player.y = 100
+    player.x = 110
   }
 
   if(keyCode === 78){
@@ -90,23 +101,9 @@ function keyPressed(){
   }
 
   if(keyCode === UP_ARROW){
-    firstCheck = millis();
+    if(!player.jumping || jumps > 0)
+      player.jump();
+      player.jumping = true; 
+      jumps--
   }
 }
-
-function keyReleased(){
-  if(keyCode === UP_ARROW){
-    player.velocity = jumpVelocity
-  }
-}
-
-function jumpKey(){
-  if (keyIsDown(UP_ARROW) && player.jumping == false) {
-    secondCheck = millis()
-    if(secondCheck - firstCheck > 100) {
-      jumpVelocity = -10 
-    } else {
-      jumpVelocity = -8
-    }
-  }
-} 

@@ -22,5 +22,6 @@ function startMenuButtons(){
 
 function switchToGame(){
   gameMode = 2
-  startButton.hide(); 
+  startButton.hide();
+  gameInit();
 }

@@ -5,10 +5,11 @@ class Char {
     this.y = y;
     this.w = 35;
     this.gravity = 0.4;
-    this.lift = -10;
+    this.lift = -9;
     this.velocity = 5;
     this.jumping = false;
-    this.mspeed = 2
+    this.mspeed = 0
+    this.debug = true;
   }
 
   show() {
@@ -23,12 +24,25 @@ class Char {
     }
   }
 
+  jump(){
+    this.jumping = true;
+    this.velocity = this.lift;
+  }
+
   update() {
     this.velocity += this.gravity;
     this.y += this.velocity;
 
-    if (this.y > height) {
-      gameMode = 3
+    if(!this.debug){
+      if (this.y > height) {
+        gameMode = 3
+      }
+    } else if(this.debug){
+       if (this.y > height - 65) {
+        this.y = height - 65;
+        this.velocity = 0;
+        this.jumping = false;
+       }
     }
   }
 }
