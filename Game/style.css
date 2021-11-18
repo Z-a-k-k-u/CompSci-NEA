@@ -1,13 +1,118 @@
+@font-face {
+  font-family: gameFont;
+  src: url(assets/font/gamefont.TTF);
+}
 
 #body{
-    background: rgb(50,50,50);
+  background: rgb(50,50,50);
 }
 
 #middlediv{
   margin: auto;
-  width: 57%;
-  border: 3px solid green;
+  width: 50%;
   padding: 10px;
+  position: relative;
 }
 
+/* ------------------------------------------------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------------------- */
 
+#usernameTextBox{
+  width: 400px; 
+  text-align: center; 
+  height: 40px;
+  transition: 0.25s;
+  outline: none;
+  font-family: gameFont;
+  font-size: 24px;
+  color: white; 
+  border: 3px solid rgba(255, 0, 0, 0.411);
+  background-color: rgba(255, 255, 255, 0.096);
+  position: relative;
+  border-radius: 5px;
+}
+
+#usernameTextbox:focus{
+  border: 2px solid #ff0000;
+}
+
+/* ------------------------------------------------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------------------- */
+
+#submitScoreButton{
+  height: 48px;
+  width: 150px;
+  border: 3px solid rgba(255, 0, 0, 0.411);
+  background-color: rgba(255, 255, 255, 0.096);
+  font-family: gameFont;
+  font-size: 16px;
+  transition-duration: 0.4s;
+  color: rgb(145, 145, 145);
+  box-shadow: 0 2px rgb(36, 8, 8);
+  border-radius: 5px;
+}
+
+#submitScoreButton:hover {
+  background-color: rgb(73, 0, 0); /* Green */
+  color: white;
+}
+
+#submitScoreButton:active {
+  background-color: rgb(73, 0, 0);
+  box-shadow: 0 2px rgb(250, 3, 3);
+  transform: translateY(4px);
+}
+
+/* ------------------------------------------------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------------------- */
+
+#endscreenMenuButton{
+  height: 48px;
+  width: 200px;
+  border: 3px solid rgba(255, 123, 0, 0.411);
+  background-color: rgba(255, 255, 255, 0.096);
+  font-family: gameFont;
+  font-size: 24px;
+  transition-duration: 0.4s;
+  color: rgb(145, 145, 145);
+  box-shadow: 0 2px rgb(36, 8, 8);
+  border-radius: 5px;
+}
+
+#endscreenMenuButton:hover {
+  background-color: rgb(255, 136, 0); /* Green */
+  color: black;
+}
+
+#endscreenMenuButton:active {
+  background-color: rgb(73, 0, 0);
+  box-shadow: 0 2px rgb(250, 3, 3);
+  transform: translateY(4px);
+}
+
+/* ------------------------------------------------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------------------- */
+
+#startButton{
+  height: 48px;
+  width: 200px;
+  border: 3px solid rgba(4, 114, 9, 0.411);
+  background-color: rgba(255, 255, 255, 0.096);
+  font-family: gameFont;
+  font-size: 24px;
+  transition-duration: 0.4s;
+  color: rgb(145, 145, 145);
+  box-shadow: 0 2px rgb(1, 49, 11);
+  border-radius: 5px;
+}
+
+#startButton:hover {
+  background-color: rgb(0, 202, 51); /* Green */
+  color: black;
+}
+
+#startButton:active {
+  background-color: rgb(0, 68, 3);
+  box-shadow: 0 2px rgba(0, 37, 11, 0.342);
+  transform: translateY(4px);
+}

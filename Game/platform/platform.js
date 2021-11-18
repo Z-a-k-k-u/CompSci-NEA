@@ -91,17 +91,25 @@ class Platform {
     }
   }
 
-  update() {
+  update(millis) {
+    console.log(millis)
+    if(millis % 5000 == 0){
+      this.speed =+ 0.1
+      console.log("Speed Increase - Speed is now: " + this.speed)
+    }
     this.x -= this.speed;
   }
 
-  coinrender(player){
+  coinrender(player, score,){
     if(this.platformCoins !== undefined){
-      for(let c = this.platformCoins.length - 1; c >= 0; c--){ 
+      for(let c = 0; c < this.platformCoins.length; c++){ 
         this.platformCoins[c].update(this.speed)
 
         if(this.platformCoins[c].collision(player)){
           this.platformCoins.splice(c , 1)
+          console.log("Coin go Poof")
+          score.score = score.score + 100;
+          coinsCollected++
         }
       }
     }

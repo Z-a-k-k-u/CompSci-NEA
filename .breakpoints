@@ -11,9 +11,17 @@
     "Game/platform/platform.js": [
       {
         "id": "4f781600-992e-462b-bbb2-8dd9979b3a0f",
-        "line": 80,
-        "version": 459,
-        "index": 1902
+        "line": 73,
+        "version": 741,
+        "index": 1709
+      }
+    ],
+    "Game/script.js": [
+      {
+        "id": "5503c316-28e0-4508-a08f-92585e24789f",
+        "line": 66,
+        "version": 1259,
+        "index": 980
       }
     ]
   }

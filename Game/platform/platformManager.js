@@ -14,7 +14,7 @@ function platformManager(){
     platforms[lastPlatform].platformCoins = generateCoinPattern(whatCoinPattern, platforms[lastPlatform].x + 180, platforms[lastPlatform].y - 200)
   }
 
-  player.update();
+  player.update(deltaTime);
   player.show();
   
 
@@ -24,7 +24,7 @@ function platformManager(){
       platforms[i].update();
     }
 
-    platforms[i].coinrender(player); 
+    platforms[i].coinrender(player, score, coinsCollected); 
 
     if (platforms[i].off()) {
       platforms.splice(i, 1);
@@ -40,5 +40,5 @@ function platformManager(){
   }
 
   score.updateScore(frameCount);
-  score.showScore();
+  score.showScore(coinsCollected);
 }

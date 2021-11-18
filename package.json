@@ -20,6 +20,7 @@
   "dependencies": {
     "@replit/database": "^2.0.1",
     "express": "^4.17.1",
-    "socket.io": "^4.3.1"
+    "socket.io": "^4.3.1",
+    "sqlite3": "^5.0.2"
   }
 }

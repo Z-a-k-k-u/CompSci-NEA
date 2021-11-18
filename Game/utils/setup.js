@@ -11,4 +11,10 @@ function allSetup(){
   platforms[0].x = 50
   img = loadImage("assets/platform2.png")
   score = new Score(frameCount)
+  endscreenButtons(); 
+  startMenuButtons()
+  /* ------------------------- */
+  var gameDeltaTime = millis(); 
+  console.log("Delta time loaded")
+  /* ------------------------- */
 }

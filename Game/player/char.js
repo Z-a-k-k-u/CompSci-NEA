@@ -27,10 +27,8 @@ class Char {
     this.velocity += this.gravity;
     this.y += this.velocity;
 
-    if (this.y > height - 65) {
-      this.y = height - 65;
-      this.velocity = 0;
-      this.jumping = false;
+    if (this.y > height) {
+      gameMode = 3
     }
   }
 }

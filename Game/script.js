@@ -7,15 +7,30 @@ let font;
 let score;
 let randomcheck; 
 let voidCheck; 
-let gameMode = 2
+let gameMode = 1;
 let firstCheck;
 let secondCheck
 let jumpVelocity;  
 let canvase; 
 let canCoinSpawn; 
 let whatCoinPattern;
+const socket = io();
+let returnedHighscores = null; 
+let coinsCollected = 0; 
 
 p5.disableFriendlyErrors = true;
+
+socket.on("connect", () => {
+  console.log(socket.id);
+});
+
+socket.on("highscores", (arg) => {
+  returnedHighscores = arg
+});
+
+function submitPlayerScore(d){
+  socket.emit("submitHighScore", {username: d.value, score: score.score})
+}
 
 function preload(){
   preSetup()
@@ -26,6 +41,7 @@ function setup() {
 }
 
 function draw() {
+  gameDeltaTime = gameDeltaTime + millis(); 
   switch (gameMode) {
     case 1:
       //console.log("start Menu")
@@ -34,19 +50,24 @@ function draw() {
     case 2:
       MAINGAME();
       break;
+    case 3:
+      ENDGAME();
+      break;
   }
 }
 
 function MAINGAME(){
   jumpKey(); 
   background(0);
-  fill(255);
-  rect(0, height - 30, width, 50);
   platformManager();
 }
 
 function STARTMENU(){
   menu(); 
+}
+
+function ENDGAME(){
+  endscreen(); 
 }
 
 function keyPressed(){
@@ -61,6 +82,11 @@ function keyPressed(){
     } else{
       spawning = true
     }
+  }
+
+  if(keyCode === 66){
+    usernameInputBox.hide();
+    submitScoreButton.hide(); 
   }
 
   if(keyCode === UP_ARROW){
