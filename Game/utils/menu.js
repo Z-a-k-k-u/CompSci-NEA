@@ -7,7 +7,7 @@ function menu(){ //finish menu add button class to create your damn buttons
   textFont(font) 
   textSize(48)
   textAlign(CENTER)
-  text("(Game Name)", width/2, 100)
+  text("Hell Runner", width/2, 100)
   startButton.show(); 
 }
 

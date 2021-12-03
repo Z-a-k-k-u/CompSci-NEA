@@ -2,7 +2,8 @@ let usernameInputBox
 let submitScoreButton
 let username = document.getElementById('usernameTextBox');
 let showscores = false
-let backToMenuButton; 
+let backToMenuButton;
+let skipSubmit;
 
 function endscreen(){
   background(0)
@@ -10,6 +11,7 @@ function endscreen(){
     backToMenuButton.show(); 
     usernameInputBox.hide();
     submitScoreButton.hide();
+    skipSubmit.hide();
     fill(255)
     stroke(255, 132, 0)
     textSize(32)
@@ -17,7 +19,7 @@ function endscreen(){
     strokeWeight(2)
     line(50, 70, 750, 70);
     noStroke();
-    if(returnedHighscores !== null){
+    if(returnedHighscores){
       textAlign(CENTER)
       textSize(24)
       let ytext = 110; 
@@ -42,6 +44,7 @@ function endscreen(){
     text("Submit Name to be added to the leaderboard", width / 2, 90)
     usernameInputBox.show();
     submitScoreButton.show();
+    skipSubmit.show(); 
   }
 }
 
@@ -50,6 +53,7 @@ function endscreenButtons(){
   usernameInputBox.parent('middlediv')
   usernameInputBox.id("usernameTextBox")
   usernameInputBox.position(100, height / 2)
+  usernameInputBox.attribute("maxlength", "12")
   
   submitScoreButton = createButton("Submit Score")
   submitScoreButton.parent('middlediv')
@@ -66,6 +70,13 @@ function endscreenButtons(){
   backToMenuButton.position(width/2 - 99, height - 70)
   backToMenuButton.mousePressed(backToMainMenu)
   backToMenuButton.hide();
+
+  skipSubmit = createButton("Skip")
+  skipSubmit.parent("middlediv")
+  skipSubmit.id("skipSubmit")
+  skipSubmit.position(width/2 - 50, height - 70)
+  skipSubmit.mousePressed(skipsub)
+  skipSubmit.hide(); 
 }
 
 function dod(){
@@ -76,6 +87,13 @@ function dod(){
     showscores = true;
     socket.emit("getHighScores");
   }
+}
+
+function skipsub(){
+  showscores = true
+  skipSubmit.hide();
+  socket.emit("getHighScores");
+  skipSubmit.hide(); 
 }
 
 function backToMainMenu(){
